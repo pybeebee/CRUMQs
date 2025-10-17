@@ -2,7 +2,7 @@
 
 Existing RAG benchmarks rarely reflect realistic task complexity for multi-hop or out-of-scope questions, which often can be cheated via disconnected reasoning or require only simple factual recall. This limits the ability for such benchmarks to uncover limitations of existing RAG systems. 
 
-This repository provides code for the first pipeline for automatic, difficulty-controlled creation of un<u>c</u>heatable, <u>r</u>ealistic, <u>u</u>nanswerable, and <u>m</u>ulti-hop <u>q</u>uerie<u>s</u> (CRUMQs), adaptable to any corpus and domain. It includes sample code to (1) create CRUMQs over two popular RAG datasets and (2) evaluate the resulting benchmark's effectiveness via experiments on leading retrieval-augmented LLMs. 
+This repository provides code for the first pipeline for automatic, difficulty-controlled creation of un<u>c</u>heatable, <u>r</u>ealistic, <u>u</u>nanswerable, and <u>m</u>ulti-hop <u>q</u>uerie<u>s</u> (CRUMQs), adaptable to any corpus and domain. It includes code to (1) create CRUMQs over two popular RAG datasets and (2) evaluate the resulting benchmark's effectiveness via experiments on leading retrieval-augmented LLMs. 
 
 Compared to prior RAG benchmarks, CRUMQs are highly challenging for RAG systems and achieve up to 81.0% reduction in cheatability scores. More broadly, our pipeline offers a simple way to enhance benchmark difficulty and realism and drive development of more capable RAG systems.
 
@@ -55,7 +55,7 @@ Compared to prior RAG benchmarks, CRUMQs are highly challenging for RAG systems 
 
 ## 📂 File Structure
 
-- `_benchmark_database/`: Directory containing sample database for benchmarking experiments.
+- `_benchmark_database/`: Directory containing database for benchmarking experiments.
 - `_database/`
   - `neuclir_test/`: Directory containing golden retrieved articles per test topic for TREC NeuCLIR 2024.
   - `trecrag2025/`: Directory containing golden retrieved articles per test topic for TREC RAG 2025.
@@ -107,14 +107,14 @@ bash ./src/crumqs_generation/run_trecrag.sh
 bash ./src/crumqs_generation/filter_dataset.py
 ```
 
-Detailed of the data generation parameters are described in [run.py](https://anonymous.4open.science/r/crumqs/src/crumqs_generation/run.py) and may be altered via command-line arguments as desired (e.g., the number of total queries generated, or the number of documents to consider when generating question-answer pairs).
+Detailed of the data generation parameters are described in [run.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/run.py) and may be altered via command-line arguments as desired (e.g., the number of total queries generated, or the number of documents to consider when generating question-answer pairs).
 
-The resulting CRUMQs will be automatically saved, compiled, and assigned quality scores via LLM judgment. Scoring thresholds may be adjusted in [filter_dataset.py](https://anonymous.4open.science/r/crumqs/src/crumqs_generation/filter_dataset.py).
+The resulting CRUMQs will be automatically saved, compiled, and assigned quality scores via LLM judgment. Scoring thresholds may be adjusted in [filter_dataset.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/filter_dataset.py).
 
 
 ### 🔍 Evaluating RAG Systems
 
-Use [run_rag.py](https://anonymous.4open.science/r/crumqs/src/evaluation/run_rag.py) to configure and benchmark different RAG systems on the final CRUMQs. For example:
+Use [run_rag.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/evaluation/run_rag.py) and [score_rag.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/evaluation/score_rag.py) to configure and benchmark different RAG systems on the final CRUMQs. For example:
 
 ```bash
 cd CRUMQs; source ./unans_env/bin/activate
