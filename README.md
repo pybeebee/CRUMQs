@@ -79,7 +79,7 @@ Compared to prior RAG benchmarks, CRUMQs are highly challenging for RAG systems 
     - `run_rag.py`: Code to implement and run RAG systems.
     - `score_rag.py`: Code to performance of RAG systems using different generator models.
 - `requirements.txt`: Dependencies for environment creation.
-- `setup.sh_.txt`: Script for environment creation.
+- `setup.sh`: Script for environment creation.
 
 
 <a name="usage"></a>
