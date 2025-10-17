@@ -107,9 +107,9 @@ bash ./src/crumqs_generation/run_trecrag.sh
 bash ./src/crumqs_generation/filter_dataset.py
 ```
 
-Detailed of the data generation parameters are described in [run.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/run.py) and may be altered via command-line arguments as desired (e.g., the number of total queries generated, or the number of documents to consider when generating question-answer pairs).
+Details of the data generation parameters are described in [run.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/run.py) and may be altered via command-line arguments as desired (e.g., the number of total queries generated, or the number of documents to consider when generating question-answer pairs).
 
-The resulting CRUMQs will be automatically saved, compiled, and assigned quality scores via LLM judgment. Scoring thresholds may be adjusted in [filter_dataset.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/filter_dataset.py).
+The resulting CRUMQs will be automatically saved, compiled, and filtered accordng to quality scores assigned via LLM judgment. Scoring thresholds may be adjusted in [filter_dataset.py](https://github.com/pybeebee/CRUMQs/blob/4bd7eff3556fe23dbb5dbdbe811ddf70862cd52b/src/crumqs_generation/filter_dataset.py).
 
 
 ### 🔍 Evaluating RAG Systems
